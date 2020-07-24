@@ -20,8 +20,19 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-const displayNames = [];
-console.log(displayNames);
+
+
+
+function animalLabels(data) {
+    let displayNames = [];
+    data.forEach(function(item){
+    displayNames.push(`${item.animal_name}, ${item.scientific_name}`)
+  });
+  return displayNames;
+
+}
+
+console.log("Request 1:", animalLabels(zooAnimals));
 
 /* Request 2: .map()
 
@@ -29,24 +40,45 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-const lowCaseAnimalNames
-console.log(lowCaseAnimalNames);
+
+function animalToLowcase(data){
+  const lowCaseAnimalNames = data.map(function(item){
+      return item.animal_name.toLowerCase();
+  });
+  return lowCaseAnimalNames;
+}
+
+console.log("Request 2:", animalToLowcase(zooAnimals));
 
 /* Request 3: .filter() 
 
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals
-console.log(lowPopulationAnimals);
+function lowPopCount(data){
+const lowPopulationAnimals = data.filter(function(item){
+  if(item.population < 5){
+    return item;
+  }
+});
+return lowPopulationAnimals;
+}
+
+console.log("Request 3:", lowPopCount(zooAnimals));
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-let populationTotal = 0;
-console.log(populationTotal);
+function getTotalPop(data){
+  const populationTotal = data.reduce(function(accumulator, item){
+    return accumulator + item.population;
+  },0);
+  return populationTotal;
+}
+
+console.log(getTotalPop(zooAnimals));
 
 
 // ==== Callbacks ====  
