@@ -32,7 +32,7 @@ function animalLabels(data) {
 
 }
 
-console.log("Request 1:", animalLabels(zooAnimals));
+console.log("Array Request 1:", animalLabels(zooAnimals));
 
 /* Request 2: .map()
 
@@ -48,7 +48,7 @@ function animalToLowcase(data){
   return lowCaseAnimalNames;
 }
 
-console.log("Request 2:", animalToLowcase(zooAnimals));
+console.log("Array Request 2:", animalToLowcase(zooAnimals));
 
 /* Request 3: .filter() 
 
@@ -64,7 +64,7 @@ const lowPopulationAnimals = data.filter(function(item){
 return lowPopulationAnimals;
 }
 
-console.log("Request 3:", lowPopCount(zooAnimals));
+console.log("Array Request 3:", lowPopCount(zooAnimals));
 
 /* Request 4: .reduce() 
 
@@ -78,7 +78,7 @@ function getTotalPop(data){
   return populationTotal;
 }
 
-console.log(getTotalPop(zooAnimals));
+console.log("Array Request 4:", getTotalPop(zooAnimals));
 
 
 // ==== Callbacks ====  
